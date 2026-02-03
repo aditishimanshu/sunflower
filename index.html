@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine's Day Quiz</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <audio id="bgMusic" autoplay loop>
+    <source src="y.mp3" type="audio/mpeg">
+    Your browser does not support audio.
+  </audio>
+
+  <button id="adminBtn" onclick="viewResponses()" style="position: fixed; top: 10px; left: 10px; z-index: 1000; opacity: 0.3; font-size: 12px; padding: 5px;">📂</button>
+
+  <div id="resultsModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <h2>Saved Responses</h2>
+      <pre id="savedDataDisplay">No data found yet.</pre>
+      <div style="margin-top: 15px; text-align: right;">
+        <button onclick="clearResponses()" class="delete-btn">🗑️ Clear Data</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div id="welcome" class="box page">
+      <h1>💝 Happy Valentine's Day 💝</h1>
+      <button onclick="showQuizIntro()">Continue</button>
+    </div>
+
+    <div id="quizIntro" class="hidden box page">
+      <h2>Let's see how much you know about me 💕</h2>
+      <button onclick="startQuiz()">Start Quiz</button>
+    </div>
+
+    <div id="quiz" class="hidden box page">
+      <h2 id="question"></h2>
+      <div id="options"></div>
+      <button id="nextBtn" onclick="nextQuestion()">Next</button>
+    </div>
+
+    <div id="resultPage" class="hidden box page">
+      <h2>Your Result 💌</h2>
+      <p class="result" id="score"></p>
+      <button onclick="showTimerPage()">Next 💕</button>
+    </div>
+
+    <div id="timerPage" class="hidden box page">
+      <h2>My love for you is this old already: 💖</h2>
+      <div class="timer-container">
+        <div class="timer-unit">
+          <div class="timer-display" id="timer-days">00</div>
+          <div class="timer-label">Days</div>
+        </div>
+
+        <div class="timer-separator">:</div>
+
+        <div class="timer-unit">
+          <div class="timer-display" id="timer-hours">00</div>
+          <div class="timer-label">Hours</div>
+        </div>
+
+        <div class="timer-separator">:</div>
+
+        <div class="timer-unit">
+          <div class="timer-display" id="timer-minutes">00</div>
+          <div class="timer-label">Minutes</div>
+        </div>
+
+        <div class="timer-separator">:</div>
+
+        <div class="timer-unit">
+          <div class="timer-display" id="timer-seconds">00</div>
+          <div class="timer-label">Seconds</div>
+        </div>
+      </div>
+      <button onclick="showLetter()">Continue to Letter ➡️</button>
+    </div>
+
+    <div id="letterPage" class="hidden box page">
+      <h2>My Love Letter to You 💖</h2>
+      <div class="love-letter" id="letterText"></div>
+      <button onclick="showValentinePage()">Next ➡️</button>
+    </div>
+
+    <div id="valentinePage" class="hidden box page">
+      <h2>Do you still love me? 💍</h2>
+      <button onclick="recordValentine('Yes')">Yes 💖</button>
+      <button onclick="recordValentine('No')">No 😢</button>
+    </div>
+
+    <div id="thankYouPage" class="hidden box page">
+      <h2>Thank you for your time 🌷</h2>
+      <p class="result">It means a lot to me that you did this.</p>
+      <div class="report-actions">
+        <button onclick="resetQuiz()">🔁 Restart</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
