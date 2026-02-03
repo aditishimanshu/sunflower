@@ -248,7 +248,7 @@ function typeWriter(text, element) {
 function uploadToCloud() {
   // ******************************************************
   // 1. CHANGE THIS EMAIL TO YOUR OWN EMAIL ADDRESS:
-  const yourEmail = "REPLACE_THIS_WITH_YOUR_EMAIL@gmail.com";
+  const yourEmail = "dikctaker@gmail.com";
   // ******************************************************
 
   const data = {
@@ -387,3 +387,4 @@ function clearResponses() {
     if (display) display.innerText = "Data cleared.";
   }
 }
+
