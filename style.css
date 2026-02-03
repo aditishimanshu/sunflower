@@ -26,7 +26,7 @@ body::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url("./z.jpg"); /* Ensure this matches your uploaded file name (z.jpg or z.png) */
+  background-image: url("z.png"); /* Ensure this matches your uploaded file name (z.jpg or z.png) */
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
@@ -322,3 +322,4 @@ button:hover {
   background-color: #cc0000;
   transform: none;
 }
+
