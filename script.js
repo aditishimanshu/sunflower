@@ -244,44 +244,46 @@ function typeWriter(text, element) {
   typeCurrentLine();
 }
 
+// --- NEW FUNCTION: UPLOAD TO CLOUD VIA EMAIL ---
+function uploadToCloud() {
+  // ******************************************************
+  // 1. CHANGE THIS EMAIL TO YOUR OWN EMAIL ADDRESS:
+  const yourEmail = "REPLACE_THIS_WITH_YOUR_EMAIL@gmail.com";
+  // ******************************************************
+
+  const data = {
+    _subject: "New Valentine Response! 💖",
+    score: score + " / " + quizData.length,
+    valentine_answer: valentineAnswer,
+    responses: responses.join(", "),
+    date: new Date().toLocaleString()
+  };
+
+  // Using FormSubmit.co AJAX API (free, no sign-up required, just confirm email once)
+  fetch(`https://formsubmit.co/ajax/${yourEmail}`, {
+    method: "POST",
+    headers: { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  .then(response => response.json())
+  .then(data => console.log("Email sent successfully", data))
+  .catch(error => console.log("Error sending email", error));
+}
+
 // Final proposal recording
 function recordValentine(answer) {
   valentineAnswer = answer;
   saveProgress();
-  alert(answer === "Yes"
-    ? "You just made my heart do a happy dance! 💖"
-    : "No worries, I cherish you anyway. 🌸"
-  );
-}
-
-// Report download
-function downloadReport() {
-  const lines = [];
-  lines.push("Valentine's Day Quiz Responses");
-  lines.push("By: Himanshu");
-  lines.push("Date: " + new Date().toLocaleString());
-  lines.push("");
-
-  quizData.forEach((q, i) => {
-    lines.push(`Q${i + 1}: ${q.question}`);
-    lines.push(`- Selected: ${responses[i] || "No selection"}`);
-    lines.push(`- Correct Answer: ${q.answer}`);
-    lines.push("");
-  });
-
-  lines.push(`Final Proposal Answer: ${valentineAnswer || "No response"}`);
-  lines.push("");
-  lines.push(`Score: ${score} / ${quizData.length}`);
-
-  const blob = new Blob([lines.join("\n")], { type: "text/plain;charset=utf-8" });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "valentine_responses.txt";
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
+  uploadToCloud(); // Send data to email
+  
+  if (answer === "Yes") {
+    alert("You just made my heart do a happy dance! 💖 (I've been notified!)");
+  } else {
+    alert("No worries, I cherish you anyway. 🌸 (I've been notified!)");
+  }
 }
 
 // LocalStorage helpers
@@ -336,19 +338,18 @@ Himanshu 💕
   `;
 }
 
-// --- ADMIN FUNCTIONS (FIX) ---
+// --- ADMIN FUNCTIONS ---
 
 function viewResponses() {
   const modal = $("resultsModal");
   const display = $("savedDataDisplay");
   
-  // Fetch data
+  // Fetch local data
   const data = localStorage.getItem("valentineQuiz");
   
   if (data) {
     try {
       const parsed = JSON.parse(data);
-      // Format the display
       let text = `📅 Date: ${new Date(parsed.timestamp).toLocaleString()}\n`;
       text += `🏆 Score: ${parsed.score} / ${quizData.length}\n`;
       text += `💌 Answer: ${parsed.valentineAnswer || "Pending"}\n\n`;
@@ -361,13 +362,13 @@ function viewResponses() {
       display.innerText = "Error reading data.";
     }
   } else {
-    display.innerText = "No responses saved yet.";
+    display.innerText = "No responses saved on this device yet.";
   }
 
   // Show modal
   if (modal) {
     modal.classList.remove("hidden");
-    modal.style.display = "flex"; // Ensure it opens as flexbox for centering
+    modal.style.display = "flex"; 
   }
 }
 
