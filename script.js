@@ -16,9 +16,8 @@ const quizData = [
     answer: "c) Dark chocolate"
   },
   {
-    question: "What I'm afraid of?",
-    options: ["a) Insects", "b) Disha", "c) Both a and d", "d) You"],
-    answer: "c) Both a and d"
+    question: "Have you completely moved on from him?",
+    options: ["a) Kind of", "b) Yes", "c) No", "d) Don't wanna tell"],
   },
   {
     question: "I have allergy from what?",
@@ -387,4 +386,5 @@ function clearResponses() {
     if (display) display.innerText = "Data cleared.";
   }
 }
+
 
