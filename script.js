@@ -8,7 +8,7 @@ const quizData = [
   {
     question: "What is the color of my eyes?",
     options: ["a) Brown", "b) Dark black", "c) Hazel", "d) Grey"],
-    answer: "a) Brown"
+    answer: "c) Hazel"
   },
   {
     question: "What type of chocolate is my favourite?",
@@ -386,6 +386,7 @@ function clearResponses() {
     if (display) display.innerText = "Data cleared.";
   }
 }
+
 
 
 
