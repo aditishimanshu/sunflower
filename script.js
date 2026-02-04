@@ -148,7 +148,7 @@ function nextQuestion() {
   } else {
     showPage("resultPage");
     const scoreEl = $("score");
-    if (scoreEl) scoreEl.innerText = `You got ${score} out of ${quizData.length} correct 💕`;
+    if (scoreEl) scoreEl.innerText = `You got ${score} out of 4 correct 💕`;
     saveProgress();
   }
 }
@@ -386,5 +386,6 @@ function clearResponses() {
     if (display) display.innerText = "Data cleared.";
   }
 }
+
 
 
