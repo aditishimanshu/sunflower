@@ -315,22 +315,20 @@ function getLoveLetter() {
   return `
 My dearest Aditi,
 
-I don’t know the exact moment my heart decided that you were home,
-but I remember the feeling—a soft, steady warmth that made everything else quieter.
-It’s in the way you make me smile without trying, the way you notice tiny things no one else sees,
-and the way you make ordinary days feel like a gentle kind of magic.
 
-I love our small moments: the half-finished conversations, the shared glances,
-the way we laugh at the same silly stories. I love the way you care,
-even when you think no one is watching. I love your courage, your kindness, your beautiful, curious mind.
 
-When life feels heavy, you are my calm. When I’m unsure, you are my reminder to keep going.
-With you, I’ve learned that love isn’t loud or complicated—it’s patient, honest,
-and quietly certain, like the sun returning each morning.
+I don’t get to see you every day. Most of the time, you’re just a name lighting up my screen. But somehow, that’s enough. When your text comes after hours of silence, I won’t lie — I still feel that sudden jump of happiness. It’s automatic. It’s real. It’s the kind of smile I can’t control even if I try.
 
-I choose you—today and every day—for the way you make me better without asking,
-for the way you make my world softer and brighter, and for the way my heart rests when you’re near.
-Thank you for being you—unapologetically, beautifully you.
+You once asked me something that stayed with me. You asked if I ever feel annoyed — when you talk a little rudely sometimes, when you disappear suddenly, when I wait for hours and you send two or three messages and vanish again.
+
+I don’t feel annoyed. I don’t keep count of how long you’re gone or how short the conversation is. I just know that when you text, it makes me happy — and that feeling is enough for me. I understand that you have your own space, your own moods, your own world outside of me. I respect that. I’m not here to control your timing or demand more than you can give.
+
+And no matter how many times you tell me to leave, I won’t. Not in a dramatic or suffocating way — just in a steady one. Even if you hurt me sometimes, even if things feel distant, what I feel doesn’t switch off like that. But please don’t take this as a burden or pressure. I’m not asking you to carry my feelings. They’re mine, and I hold them because I choose to.
+
+I don’t need constant replies. I don’t need perfect conversations. I just like you — in a way that’s patient, calm, and certain. And whenever your name lights up my phone, I’ll probably still smile like an idiot.
+
+Take your time. I’m still here. ✨
+
 
 Forever yours,
 Himanshu 💕
@@ -386,6 +384,7 @@ function clearResponses() {
     if (display) display.innerText = "Data cleared.";
   }
 }
+
 
 
 
