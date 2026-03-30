@@ -156,30 +156,25 @@ function nextQuestion() {
 // Timer functions
 function startTimer() {
   const startDate = new Date("2023-09-02T00:00:00").getTime();
+  const now = new Date().getTime(); 
+  const difference = now - startDate;
 
-  timerInterval = setInterval(() => {
-    const now = new Date().getTime();
-    const difference = now - startDate;
+  const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+  const daysEl = $("timer-days");
+  const hoursEl = $("timer-hours");
+  const minutesEl = $("timer-minutes");
+  const secondsEl = $("timer-seconds");
 
-    const daysEl = $("timer-days");
-    const hoursEl = $("timer-hours");
-    const minutesEl = $("timer-minutes");
-    const secondsEl = $("timer-seconds");
-
-    if (daysEl) daysEl.innerText = days.toString().padStart(2, '0');
-    if (hoursEl) hoursEl.innerText = hours.toString().padStart(2, '0');
-    if (minutesEl) minutesEl.innerText = minutes.toString().padStart(2, '0');
-    if (secondsEl) secondsEl.innerText = seconds.toString().padStart(2, '0');
-  }, 1000);
-}
-
-function stopTimer() {
-  if (timerInterval) clearInterval(timerInterval);
+  if (daysEl) daysEl.innerText = days.toString().padStart(2, '0');
+  if (hoursEl) hoursEl.innerText = hours.toString().padStart(2, '0');
+  if (minutesEl) minutesEl.innerText = minutes.toString().padStart(2, '0');
+  if (secondsEl) secondsEl.innerText = seconds.toString().padStart(2, '0');
+  
+  // No setInterval here, so it runs once and stops.
 }
 
 // Typewriter effect
